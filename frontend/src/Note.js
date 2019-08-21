@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default class NotesComponent extends React.Component {
-
+export default class Note extends React.Component {
+// Basic NotesComponent
   render() {
     return(
       <div>

@@ -1,5 +1,6 @@
 import React from 'react';
-import NotesComponent from './NotesComponent';
+import Note from './Note';
+import SignIn from './SignIn'
 // import './Ext.css'
 
 export default class Ext extends React.Component {
@@ -33,18 +34,26 @@ export default class Ext extends React.Component {
   }
 
   render() {
+    if(!this.props.loggedIn) {
+      return(<div>
+         <SignIn />
+        </div>)
+    } else {
     return(
       <div className={'my-extension'}>
+
         <p>Extension Component</p>
-        <p>Welcome, {this.props.user}</p>
+        <p>Welcome, {this.props.users}</p>
+
+
         <form id="noteform" onSubmit={ event => this.handleSubmit(event) }>Title:
             <input type="text" name="title" placeholder="Lab Title"
             onChange={event => this.onTitleChange(event)} value={this.state.title}/>
             <textarea rows="20" cols="40" name="notes" placeholder="Notes" form="noteform"
             onChange={event => this.onNoteChange(event)} value={this.state.notes}></textarea>
-
           <input type="submit" value="Submit" />
         </form>
+
 
       <a
         className="App-link"
@@ -52,8 +61,11 @@ export default class Ext extends React.Component {
         target="_blank"
         rel="noopener noreferrer"
       >Open Page</a>
-      <NotesComponent user={this.props.user} title={this.props.title} notes={this.props.notes} />
+
+      <Note users={this.state.users} fetchUsers={this.fetchUsers}
+        notes={this.state.notes} fetchNotes={this.fetchNotes}
+         />
       </div>
-    )
+    )}
   };
 }
