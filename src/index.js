@@ -7,6 +7,6 @@ import registerServiceWorker from "./registerServiceWorker";
 const anchor = document.createElement("div");
 anchor.id = "extension-root";
 document.body.insertBefore(anchor, document.body.childNodes[0]);
-
+console.log(document.body.childNodes[0])
 ReactDOM.render(<App />, document.getElementById("extension-root"));
 registerServiceWorker();

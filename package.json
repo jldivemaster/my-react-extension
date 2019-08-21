@@ -14,7 +14,7 @@
     "eject": "react-app-rewired eject"
   },
   "devDependencies": {
-    "react-app-rewired": "^1.5.2",
-    "write-file-webpack-plugin": "^4.3.2"
+    "react-app-rewired": "^1.6.2",
+    "write-file-webpack-plugin": "^4.5.1"
   }
 }
